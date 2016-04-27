@@ -1,6 +1,6 @@
-function ex = whitenoise(ex, replay)
+function ex = pinknoise(ex, replay)
 %
-% ex = whitenoise(ex, replay)
+% ex = pinknoise(ex, replay)
 %
 % Required parameters:
 %   length : float (length of the experiment in minutes)
