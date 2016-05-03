@@ -1,0 +1,10 @@
+[{
+  "function": "colornoise",
+  "length": 3,
+  "beta": 1,
+  "seed": 154,
+  "framerate": 20,
+  "contrast": 1,
+  "ndims": [50,50],
+  "mode": "spatiotemporal"
+}]
