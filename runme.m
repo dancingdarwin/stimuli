@@ -1,6 +1,6 @@
 % Main psychToolbox experiment control script
 %
-% manages stimulus generation and metadata for Baccus lab experiments
+% manages stimulus genetration and metadata for Baccus lab experiments
 %
 % (c) 2015 Niru Maheswaranathan
 % 
@@ -8,6 +8,7 @@
 %   https://github.com/bnaecker/basic-stimulus
 %
 % 28 Apr 2015 - initial version
+cd(fileparts(mfilename('fullpath')))
 addpath('jsonlab/')
 addpath('utils/')
 addpath('functions/')
@@ -23,20 +24,19 @@ try
   % Initialize the keyboard
   ex = initkb(ex);
 
-  % Initalize the visual display
+  % Initalize tthe visual display
   ex = initdisp(ex);
 
   % wait for trigger
   ex = waitForTrigger(ex);
 
-  % Parse this day's experiment config file
-  basedir = fullfile('logs/', ex.today);
+  % Parse this day's experiment config file 
+  basedir = fullfile('logs/', 'test'); %ex.today or test
   stimuli = loadjson(fullfile(basedir, 'config.json'));
 
-  % Run the stimuli
+  % Run the stimulit
   for stimidx = 1:length(stimuli)
-
-    % get the function name for this stimulus
+    % get the function name for tthis stimulus
     ex.stim{stimidx}.function = stimuli{stimidx}.function;
 
     % get the user-specified parameters

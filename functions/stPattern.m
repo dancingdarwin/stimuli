@@ -53,7 +53,7 @@ if numel(DIM) == 2 %2D Case
     v = repmat(v,DIM(1),1);
     
     % Generate the power spectrum
-    S_f = (u.^2 + v.^2).^(2*BETA);
+    S_f = (u.^2 + v.^2).^(BETA);
     
     % Set any infinities to zero
     S_f(S_f==inf) = 0;
@@ -62,7 +62,7 @@ if numel(DIM) == 2 %2D Case
     phi = rand(DIM);
     
     % Inverse Fourier transform to obtain the the spatial pattern
-    x = ifft2(S_f.^0.5 .* (cos(2*pi*phi)+1i*sin(2*pi*phi)));
+    x = ifft2(S_f .* (cos(2*pi*phi)+1i*sin(2*pi*phi)));
     
     % Pick just the real component
     x = real(x);
@@ -89,7 +89,6 @@ elseif numel(DIM) == 3 %3D case
     disp(w(5,5,:))
     % Generate the power spectrum
     S_f = (u.^2 + v.^2).^(BETA);
-    S_w = 
     
     % Set any infinities to zero
     S_f(S_f==inf) = 0;
@@ -99,7 +98,7 @@ elseif numel(DIM) == 3 %3D case
     
     disp(S_f(:,:,10))
     % Inverse Fourier transform to obtain the the spatial pattern
-    x = ifftn(S_f.^0.5 .* (cos(2*pi*phi)+1i*sin(2*pi*phi)));
+    x = ifftn(S_f .* (cos(2*pi*phi)+1i*sin(2*pi*phi)));
     
     % Pick just the real component
     x = real(x);
